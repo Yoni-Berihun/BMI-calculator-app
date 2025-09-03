@@ -55,7 +55,7 @@ class _InputPageState extends State<InputPage> {
                 ),
               ],
             ),
-          ),_
+          ),
         ],
       ),
 
