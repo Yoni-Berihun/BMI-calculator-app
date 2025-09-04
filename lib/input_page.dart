@@ -76,13 +76,22 @@ void updateColour(int gender)
                 ),
 
                 Expanded(
-                  child: ReusableCard(
+                  child:GestureDetector(
+
+                    onTap: ()
+                    {
+                      setState((){
+                        updateColour(2);
+                      });
+                    },
+                    child:ReusableCard(
                     colour: inactiveCardColour,
                     cardChild:  IconContent(
                       myIcon: FontAwesomeIcons.venus,
                       myText: 'FEMALE',
                     ),
                   ),
+                ),
                 ),
               ],
             ),
