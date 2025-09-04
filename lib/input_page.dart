@@ -35,13 +35,15 @@ class _InputPageState extends State<InputPage> {
               children: [
                 // Male Card
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedGender = Gender.male;
-                      });
-                    },
+                  
                     child: ReusableCard(
+                      onPress:()
+                      {
+                        setState(()
+                        {
+                          Gender.male;
+                        });
+                      },
                       colour: selectedGender == Gender.male
                           ? activeCardColour
                           : inactiveCardColour,
@@ -50,18 +52,20 @@ class _InputPageState extends State<InputPage> {
                         myText: 'MALE',
                       ),
                     ),
-                  ),
+                  
                 ),
 
                 // Female Card
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedGender = Gender.female;
-                      });
-                    },
+                  
                     child: ReusableCard(
+                      onPress:()
+                      {
+                        setState(()
+                        {
+                          Gender.female;
+                        });
+                      },
                       colour: selectedGender == Gender.female
                           ? activeCardColour
                           : inactiveCardColour,
@@ -70,7 +74,7 @@ class _InputPageState extends State<InputPage> {
                         myText: 'FEMALE',
                       ),
                     ),
-                  ),
+                  
                 ),
               ],
             ),
