@@ -3,7 +3,9 @@ import 'reusable_card.dart';
 import 'icon_content.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const chosenColor = Color(0xFF1D1E33);
+const activeCardColour = Color(0xFF1D1E33);
+const inactiveCardColour = Color(0xFF111328);
+const bottomContainerColour = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
   @override
@@ -11,6 +13,38 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+
+Color maleCardColour = inactiveCardColour;
+Color femaleCardColour = inactiveCardColour;
+
+//let 1 = male and 2= female
+void updateColour(int gender)
+{
+  if(gender == 1)
+  { 
+    if(maleCardColour==inactiveCardColour)
+    {
+    maleCardColour =activeCardColour;
+    }
+    else
+    {
+    maleCardColour =inactiveCardColour;
+    }
+  }
+  if(gender == 2)
+  {
+    if(femaleCardColour==inactiveCardColour)
+    {
+    femaleCardColour =activeCardColour;
+    }
+    else
+    {
+    femaleCardColour =inactiveCardColour;
+    }
+  }
+  
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,17 +58,26 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(
-                    colour: chosenColor,
+                  child:
+                  GestureDetector( 
+                    onTap:(){
+                      setState((){
+                      updateColour(1);
+                      });
+                    },
+                    child:ReusableCard(
+                    colour: inactiveCardColour,
                     cardChild:  IconContent(
                       myIcon: FontAwesomeIcons.mars,
                       myText: 'MALE',
                     ),
                   ),
                 ),
+                ),
+
                 Expanded(
                   child: ReusableCard(
-                    colour: chosenColor,
+                    colour: inactiveCardColour,
                     cardChild:  IconContent(
                       myIcon: FontAwesomeIcons.venus,
                       myText: 'FEMALE',
@@ -48,7 +91,7 @@ class _InputPageState extends State<InputPage> {
           // Second Row — One Full-Width Card
           Expanded(
             child: ReusableCard(
-              colour: chosenColor,
+              colour: inactiveCardColour,
             ),
           ),
 
@@ -58,12 +101,12 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    colour: chosenColor,
+                    colour: inactiveCardColour,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colour: chosenColor,
+                    colour: inactiveCardColour,
                   ),
                 ),
               ],
@@ -72,7 +115,7 @@ class _InputPageState extends State<InputPage> {
 
           // Bottom Container
           Container(
-            color: const Color(0XFFEB1555),
+            color: bottomContainerColour,
             margin: const EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: 80.0,
