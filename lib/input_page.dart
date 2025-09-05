@@ -11,6 +11,7 @@ enum Gender {
 }
 
 int height = 180;
+int weight = 60;
 
 class InputPage extends StatefulWidget {
   @override
@@ -134,6 +135,36 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: kInactiveCardColour,
+                    cardChild: Column(
+                      children:[
+                        Text(
+                          'WEIGHT',
+                          style:kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style:kNumberTextStyle,
+                        ),
+                        Row(
+                          children:[ 
+                            FloatingActionButton(
+                            backgroundColor: Color(0xFF4C4F5E),
+                            child: Icon(
+                              Icons.add,
+                              color:Colors.white,
+                            ),
+                            ),
+                            FloatingActionButton(
+                            backgroundColor: Color(0xFF4C4F5E),
+                            child: Icon(
+                              Icons.minimize,
+                              color:Colors.white,
+                            ),
+                          ),
+                          ],
+                        ),  
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
